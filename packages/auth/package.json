@@ -1,0 +1,33 @@
+{
+    "name": "@ai-hrms/auth",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "main": "./src/index.ts",
+    "types": "./src/index.ts",
+    "exports": {
+        ".": {
+            "types": "./src/index.ts",
+            "import": "./src/index.ts",
+            "require": "./src/index.ts"
+        }
+    },
+    "scripts": {
+        "build": "tsc",
+        "type-check": "tsc --noEmit",
+        "clean": "rimraf dist"
+    },
+    "dependencies": {
+        "@ai-hrms/types": "workspace:*",
+        "bcrypt": "^5.1.1",
+        "jsonwebtoken": "^9.0.2"
+    },
+    "devDependencies": {
+        "@ai-hrms/config": "workspace:*",
+        "@types/bcrypt": "^5.0.2",
+        "@types/express": "^4.17.21",
+        "@types/jsonwebtoken": "^9.0.5",
+        "rimraf": "^5.0.5",
+        "typescript": "^5.3.3"
+    }
+}

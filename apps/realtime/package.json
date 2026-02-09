@@ -1,0 +1,10 @@
+{
+    "name": "@ai-hrms/realtime",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Realtime service for AI-HRMS (Phase 2)",
+    "scripts": {
+        "dev": "echo 'Coming in Phase 2'",
+        "build": "echo 'Coming in Phase 2'"
+    }
+}
