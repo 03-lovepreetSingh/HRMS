@@ -1,24 +1,24 @@
 // Enums
-export { userRoleEnum } from './users.js';
-export { leaveStatusEnum } from './leave.js';
-export { ticketStatusEnum, ticketPriorityEnum } from './tickets.js';
-export { notificationTypeEnum } from './notifications.js';
-export { auditActionEnum } from './audit.js';
+export { userRoleEnum } from './users';
+export { leaveStatusEnum } from './leave';
+export { ticketStatusEnum, ticketPriorityEnum } from './tickets';
+export { notificationTypeEnum } from './notifications';
+export { auditActionEnum } from './audit';
 
 // Users
-export { users, usersRelations, type User, type NewUser } from './users.js';
+export { users, usersRelations, type User, type NewUser } from './users';
 
 // Departments
-export { departments, departmentsRelations, type Department, type NewDepartment } from './departments.js';
+export { departments, departmentsRelations, type Department, type NewDepartment } from './departments';
 
 // Designations
-export { designations, designationsRelations, type Designation, type NewDesignation } from './designations.js';
+export { designations, designationsRelations, type Designation, type NewDesignation } from './designations';
 
 // Employees
-export { employees, employeesRelations, type Employee, type NewEmployee } from './employees.js';
+export { employees, employeesRelations, type Employee, type NewEmployee } from './employees';
 
 // Attendance
-export { attendance, attendanceRelations, type Attendance, type NewAttendance } from './attendance.js';
+export { attendance, attendanceRelations, type Attendance, type NewAttendance } from './attendance';
 
 // Leave
 export {
@@ -30,7 +30,7 @@ export {
     type NewLeaveType,
     type LeaveRequest,
     type NewLeaveRequest,
-} from './leave.js';
+} from './leave';
 
 // Payroll
 export {
@@ -41,7 +41,7 @@ export {
     type NewSalary,
     type PayrollRun,
     type NewPayrollRun,
-} from './payroll.js';
+} from './payroll';
 
 // Performance
 export {
@@ -53,7 +53,7 @@ export {
     type NewReviewCycle,
     type PerformanceReview,
     type NewPerformanceReview,
-} from './performance.js';
+} from './performance';
 
 // Tickets
 export {
@@ -69,7 +69,7 @@ export {
     type NewTicketComment,
     type TicketAttachment,
     type NewTicketAttachment,
-} from './tickets.js';
+} from './tickets';
 
 // Notifications
 export {
@@ -77,10 +77,10 @@ export {
     notificationsRelations,
     type Notification,
     type NewNotification,
-} from './notifications.js';
+} from './notifications';
 
 // Audit
-export { auditLogs, auditLogsRelations, type AuditLog, type NewAuditLog } from './audit.js';
+export { auditLogs, auditLogsRelations, type AuditLog, type NewAuditLog } from './audit';
 
 // Company
-export { companySettings, type CompanySettings, type NewCompanySettings } from './company.js';
+export { companySettings, type CompanySettings, type NewCompanySettings } from './company';

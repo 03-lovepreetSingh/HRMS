@@ -1,9 +1,9 @@
 import { pgTable, uuid, text, boolean, timestamp, date } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
-import { users } from './users.js';
-import { departments } from './departments.js';
-import { designations } from './designations.js';
+import { users } from './users';
+import { departments } from './departments';
+import { designations } from './designations';
 
 // Employees table
 export const employees = pgTable('employees', {

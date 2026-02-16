@@ -138,7 +138,9 @@ attendanceRouter.get('/summary/:employeeId/:year/:month', authGuard, async (req,
     try {
         const { employeeId, year, month } = req.params;
         const startDate = `${year}-${month!.padStart(2, '0')}-01`;
-        const endDate = `${year}-${month!.padStart(2, '0')}-31`;
+        // Calculate last day of month properly
+        const lastDay = new Date(Number(year), Number(month), 0).getDate();
+        const endDate = `${year}-${month!.padStart(2, '0')}-${lastDay.toString().padStart(2, '0')}`;
 
         const records = await db.query.attendance.findMany({
             where: and(

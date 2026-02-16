@@ -1,7 +1,7 @@
 import { pgTable, uuid, text, boolean, timestamp, pgEnum, integer } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
-import { employees } from './employees.js';
+import { employees } from './employees';
 
 // Ticket status enum
 export const ticketStatusEnum = pgEnum('ticket_status', ['OPEN', 'IN_PROGRESS', 'WAITING', 'RESOLVED', 'CLOSED']);

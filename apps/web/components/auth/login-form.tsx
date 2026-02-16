@@ -31,10 +31,13 @@ export function LoginForm() {
                 return;
             }
 
-            // Store tokens and redirect
+            // Store tokens and user data
             localStorage.setItem('accessToken', data.data.tokens.accessToken);
             localStorage.setItem('refreshToken', data.data.tokens.refreshToken);
-            router.push('/dashboard');
+            localStorage.setItem('user', JSON.stringify(data.data.user));
+            
+            // Force a hard navigation to ensure the dashboard loads with the token
+            window.location.href = '/dashboard';
         } catch {
             setError('An unexpected error occurred');
         } finally {

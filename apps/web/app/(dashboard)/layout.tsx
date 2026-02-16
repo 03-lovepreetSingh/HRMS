@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
     Users,
@@ -27,6 +31,31 @@ export default function DashboardLayout({
 }: {
     children: React.ReactNode;
 }) {
+    const router = useRouter();
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        // Check if user is logged in
+        const token = localStorage.getItem('accessToken');
+        const userData = localStorage.getItem('user');
+        
+        if (!token) {
+            router.push('/login');
+            return;
+        }
+
+        if (userData) {
+            setUser(JSON.parse(userData));
+        }
+    }, [router]);
+
+    const handleLogout = () => {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        localStorage.removeItem('user');
+        router.push('/login');
+    };
+
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
             {/* Sidebar */}
@@ -57,7 +86,10 @@ export default function DashboardLayout({
                         <Settings className="w-5 h-5" />
                         Settings
                     </Link>
-                    <button className="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors w-full">
+                    <button 
+                        onClick={handleLogout}
+                        className="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors w-full"
+                    >
                         <LogOut className="w-5 h-5" />
                         Sign out
                     </button>
@@ -79,10 +111,16 @@ export default function DashboardLayout({
                         </button>
 
                         <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full"></div>
+                            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                                {user?.email?.charAt(0).toUpperCase() || 'U'}
+                            </div>
                             <div className="hidden md:block">
-                                <div className="text-sm font-medium text-slate-900 dark:text-white">Admin User</div>
-                                <div className="text-xs text-slate-500 dark:text-slate-400">admin@example.com</div>
+                                <div className="text-sm font-medium text-slate-900 dark:text-white">
+                                    {user?.email?.split('@')[0] || 'User'}
+                                </div>
+                                <div className="text-xs text-slate-500 dark:text-slate-400">
+                                    {user?.role || 'EMPLOYEE'}
+                                </div>
                             </div>
                         </div>
                     </div>

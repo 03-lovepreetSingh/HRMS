@@ -24,7 +24,7 @@ export const usersRelations = relations(users, ({ one }) => ({
 }));
 
 // Import employees for relations (circular import resolved at runtime)
-import { employees } from './employees.js';
+import { employees } from './employees';
 
 // Type exports
 export type User = typeof users.$inferSelect;

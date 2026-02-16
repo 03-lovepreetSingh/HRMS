@@ -11,7 +11,6 @@ A production-grade, full-stack HRMS built as a Turborepo monorepo.
 | Database | PostgreSQL + Drizzle ORM      |
 | Auth     | JWT (access + refresh tokens) |
 | Monorepo | Turborepo                     |
-| Docker   | PostgreSQL, Redis, Nginx      |
 
 ## 📁 Project Structure
 
@@ -28,9 +27,7 @@ ai-hrms/
 │   ├── auth/         # JWT + RBAC utilities
 │   ├── types/        # Shared TypeScript types
 │   └── config/       # ESLint, TypeScript configs
-└── docker/
-    ├── nginx/
-    └── postgres/
+└── database-setup.sql # PostgreSQL initialization script
 ```
 
 ## 🏃 Quick Start
@@ -39,7 +36,7 @@ ai-hrms/
 
 - Node.js 18+
 - pnpm 8+
-- Docker & Docker Compose
+- PostgreSQL database (local or cloud-hosted like Supabase, Neon, Railway, etc.)
 
 ### 1. Install Dependencies
 
@@ -53,10 +50,16 @@ pnpm install
 cp .env.example .env
 ```
 
-### 3. Start Database
+Edit `.env` and add your PostgreSQL database URL:
+```
+DATABASE_URL=postgresql://username:password@host:port/database
+```
 
+### 3. Initialize Database (Optional)
+
+If your PostgreSQL database needs the required extensions, run:
 ```bash
-docker-compose up -d postgres
+psql -d your_database_url -f database-setup.sql
 ```
 
 ### 4. Run Database Migrations
@@ -164,15 +167,6 @@ pnpm type-check    # Type check all packages
 pnpm db:generate   # Generate migrations
 pnpm db:push       # Push schema to DB
 pnpm db:studio     # Open Drizzle Studio
-```
-
-## 🐳 Docker Commands
-
-```bash
-docker-compose up -d              # Start all services
-docker-compose up -d postgres     # Start only Postgres
-docker-compose down               # Stop all services
-docker-compose logs -f postgres   # View logs
 ```
 
 ## 📜 License

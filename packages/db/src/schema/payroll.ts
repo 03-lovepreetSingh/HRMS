@@ -1,7 +1,7 @@
 import { pgTable, uuid, numeric, jsonb, integer, boolean } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
-import { employees } from './employees.js';
+import { employees } from './employees';
 
 // Salaries table
 export const salaries = pgTable('salaries', {

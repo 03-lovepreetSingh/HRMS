@@ -1,7 +1,7 @@
 import { pgTable, uuid, text, date, integer, timestamp } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
-import { employees } from './employees.js';
+import { employees } from './employees';
 
 // Review cycles table
 export const reviewCycles = pgTable('review_cycles', {

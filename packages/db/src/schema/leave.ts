@@ -1,7 +1,7 @@
 import { pgTable, uuid, text, integer, date, timestamp, pgEnum } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
-import { employees } from './employees.js';
+import { employees } from './employees';
 
 // Leave status enum
 export const leaveStatusEnum = pgEnum('leave_status', ['PENDING', 'APPROVED', 'REJECTED', 'CANCELLED']);
